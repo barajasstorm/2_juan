@@ -1,8 +1,8 @@
 class Trabajadore < ActiveRecord::Base
+	has_many :operacion
 	before_save :beforesave, if: :isnull
 	after_save :aftersave
 	validates :name, presence: true
-
 
 	def beforesave
 		puts 'Se requiere poner un nombre'
