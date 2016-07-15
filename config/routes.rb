@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
   
-  devise_for :users
+  devise_for :users, controllers: {registrations: 'users/registrations'}
 
-  root to: 'movies#prohibido'
+  root 'movies#index'
   get 'movies/prohibido'
   get 'movies/permitido'
+  get 'movies/admin_movie'
+
+
+
   
   resources :movies
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:permitido]
+  before_action :filter_admin!, only: [:admin_movie]
 
   def prohibido
    
@@ -9,6 +10,18 @@ class MoviesController < ApplicationController
   def permitido
    
   end
+
+  def admin_movie
+
+  end
+
+  def filter_admin!
+    unless current_user.admin?
+      redirect_to root_path, alert: "No tienes acceso" 
+    end
+  end
+
+
 
   # GET /movies
   # GET /movies.json

@@ -23,7 +23,7 @@
 	 <% end %> #don't forget the extra end
 	<% end %>
 	<% if current_user.present? %>
-    <%=  "Hello! #{current_user.encrypted_password}" %>
+    <%=  "Hello #{current_user.firstname} #{current_user.lastname}!" %>
     <% end %>
 <ul class="nav navbar-nav navbar-right">
  <% if user_signed_in? %>
